@@ -3,6 +3,8 @@ package AirPortData;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import javax.xml.ws.Holder;
+
 public class Date implements Comparable<Date> {
 	private static int[] months= {31,28,31,30,31,30,31,31,30,31,30,31};
 
@@ -23,33 +25,56 @@ public class Date implements Comparable<Date> {
 		s.nextLine();
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		if(!(other instanceof Date))
+			return false;
+		Date temp = (Date)other;
+		return day == temp.day && month == temp.month && year == temp .year;
+	}
 	public void save(PrintWriter pw) {
 		pw.write(day+" "+ month+ " "+ year+"\n");
 	}
+	
+//	@Override
+//	public int compareTo(Date other) {
+//		if(year < other.year)
+//			return 1;
+//		if(year== other.year) {
+//			if(month < other.month)
+//				return 1;
+//			if(month == other.month)
+//				if(day < other.day)
+//					return 1;
+//			if(day == day)
+//				return 0;
+//		}
+//		return -1;
+//	}
 
 	@Override
 	public int compareTo(Date other) {
 		if(year==other.year) {
-			if(month>other.month) {
+			if(month > other.month) {
 				return 1;
 			}
-			else if(month<other.month) {
+			else if(month < other.month) {
 				return -1;
 			}
 			else {
-				if(day>other.day) {
+				if(day > other.day) {
 					return 1;
 				}
-				if(day<other.day) {
+				if(day < other.day) {
 					return -1;
 				}
 			}
 			return 0;
 		}
-		if(year>other.year) {
+		if(year > other.year) {
 			return 1;
 		}
-		else if(year<other.year) {
+		else if(year < other.year) {
 			return -1;
 		}
 		return 0;

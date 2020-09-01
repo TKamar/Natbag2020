@@ -1,0 +1,29 @@
+3
+
+LY001
+El-Al
+TLV
+New-York
+3
+20 5 2020
+0 45
+0 45
+
+LY315
+El-Al
+TLV
+London
+3
+20 5 2020
+10 10
+10 10
+
+TK400
+TK
+Amsterdam
+TLV
+3
+19 4 2020
+12 45
+13 45
+
